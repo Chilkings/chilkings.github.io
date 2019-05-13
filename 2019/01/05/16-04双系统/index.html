@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ubuntu,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="本人环境：win10笔记本  uefi方式启动">
+<meta name="keywords" content="ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在win10基础上安装ubuntu16.04双系统">
+<meta property="og:url" content="http://yoursite.com/2019/01/05/16-04双系统/index.html">
+<meta property="og:site_name" content="Chilkings&#39;s Blog">
+<meta property="og:description" content="本人环境：win10笔记本  uefi方式启动">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/15448020-895ca204ff8c56ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/15448020-b975eda729fad7ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/15448020-03e2c042eeb46714.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/15448020-92d55246d053b819.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/15448020-25d6085c3eabcf26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/15448020-f725e24f02faf6bd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/15448020-06c423167e6e3782.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/15448020-1347dbca626d77f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/15448020-e308c3b1cdc5c52a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/15448020-e06d2c7f389bb76c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/15448020-769f1c33830cfa46.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/15448020-4c500f1d45280068.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/15448020-12f607ed76e69f3f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/15448020-4468140bcfcc2e8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/15448020-a10c0db9befdcf03.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/15448020-c85167104660d5f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/15448020-a7545c5fc653f515.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/15448020-be71f4cdcb3164dc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/15448020-93ca9b0f92e90786.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-01-05T04:46:33.594Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在win10基础上安装ubuntu16.04双系统">
+<meta name="twitter:description" content="本人环境：win10笔记本  uefi方式启动">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/15448020-895ca204ff8c56ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/05/16-04双系统/">
+
+
+
+
+
+  <title>在win10基础上安装ubuntu16.04双系统 | Chilkings's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7103ef85d2c152983fff6699606248d4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chilkings's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bus"></i> <br>
+            
+            车站
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-link">
+          <a href="/link/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br>
+            
+            友链
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-something">
+          <a href="/something" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            吐槽
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/05/16-04双系统/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chilkings">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chilkings's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">在win10基础上安装ubuntu16.04双系统</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-05T12:39:23+08:00">
+                2019-01-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ubuntu/" itemprop="url" rel="index">
+                    <span itemprop="name">ubuntu</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/05/16-04双系统/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/05/16-04双系统/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/01/05/16-04双系统/" class="leancloud_visitors" data-flag-title="在win10基础上安装ubuntu16.04双系统">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本人环境：win10笔记本  uefi方式启动<br><img src="https://upload-images.jianshu.io/upload_images/15448020-895ca204ff8c56ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<a id="more"></a>
+<h2 id="一、准备："><a href="#一、准备：" class="headerlink" title="一、准备："></a>一、准备：</h2><h3 id="（一）、准备工具："><a href="#（一）、准备工具：" class="headerlink" title="（一）、准备工具："></a>（一）、准备工具：</h3><p> 　　 <strong>1、U盘一个</strong>（请提前备份U盘里面的资料，因为后面操作要格式化U盘）</p>
+<p> 　　 <strong>2、Ubuntu镜像：</strong><br>16.04版本：<a href="http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-desktop-amd64.iso" target="_blank" rel="noopener">http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-desktop-amd64.iso</a>             <strong><em>建议下这个，以免发生不可预知问题</em></strong><br>官网下载地址：<a href="http://www.ubuntu.com/download/desktop" target="_blank" rel="noopener">http://www.ubuntu.com/download/desktop</a></p>
+<p> 　　　　</p>
+<p> 　　<strong>3、启动U盘制作软件：</strong></p>
+<p> 　　　　下载地址：<a href="https://www.lanzous.com/i2shacj" target="_blank" rel="noopener">https://www.lanzous.com/i2shacj</a></p>
+<p> 　　　　Ubuntu官网提供的页面：<a href="http://www.ubuntu.com/download/desktop/create-a-usb-stick-on-windows" target="_blank" rel="noopener">http://www.ubuntu.com/download/desktop/create-a-usb-stick-on-windows</a></p>
+<h3 id="（二）、分区—分出来一个磁盘，用于安装Ubuntu"><a href="#（二）、分区—分出来一个磁盘，用于安装Ubuntu" class="headerlink" title="（二）、分区—分出来一个磁盘，用于安装Ubuntu"></a>（二）、分区—分出来一个磁盘，用于安装Ubuntu</h3><p>参考<a href="http://jingyan.baidu.com/article/425e69e6bbd0c7be14fc164a.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/425e69e6bbd0c7be14fc164a.html</a></p>
+<p><strong><em>注：压缩的磁盘选空间大的，尽量别选c盘。压缩空间量尽量在40g以上。安装完后你压缩的空间在windows下是看不到的，所以合理分配空间。完成前5步即可，不要新建简单卷。</em></strong><br>例如我的250g的硬盘，我压缩了d盘的37.5g。</p>
+<h3 id="（三）、制作启动U盘："><a href="#（三）、制作启动U盘：" class="headerlink" title="（三）、制作启动U盘："></a>（三）、制作启动U盘：</h3><p>(1)、双击运行上面下载好的“rufus”，插上u盘。</p>
+<p>(2)、运行之后，会现如下界面：（其实第一次运行时，我的还出现了一个提示更新的界面，那个我选了“否”，就进入了下面的界面，应该是可以随便选的。之后运行软件，就直接进入了下面的界面）：<img src="https://upload-images.jianshu.io/upload_images/15448020-b975eda729fad7ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="rufus"><br>(3)、点击选择，选你下好的镜像文件。将分区类型和目标系统类型看下能不能对上，和我一样就OK。然后点击开始就可以了。<img src="https://upload-images.jianshu.io/upload_images/15448020-03e2c042eeb46714.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1.png">第一次使用可能会提示要下载配置文件，全部按确认即可。<br>(4)、等进度条跑完后，写入成功。（点击关闭即可）</p>
+<h2 id="二、安装："><a href="#二、安装：" class="headerlink" title="二、安装："></a>二、安装：</h2><h3 id="1-、设置第一启动项，长按对应快捷键，选择“usb-xxx”进入u盘系统。快捷键如下图"><a href="#1-、设置第一启动项，长按对应快捷键，选择“usb-xxx”进入u盘系统。快捷键如下图" class="headerlink" title="(1)、设置第一启动项，长按对应快捷键，选择“usb xxx”进入u盘系统。快捷键如下图"></a>(1)、设置第一启动项，长按对应快捷键，选择“usb xxx”进入u盘系统。快捷键如下图</h3><p><img src="https://upload-images.jianshu.io/upload_images/15448020-92d55246d053b819.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="笔记本型号"><br><img src="https://upload-images.jianshu.io/upload_images/15448020-25d6085c3eabcf26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="主板型号"><br><strong><em>注：有的电脑要关闭secure boot才能进入u盘系统，貌似现在的心新电脑都要。反正我的要，我的按f2进入bios，你们的自己上网查吧。<br>参考<a href="https://jingyan.baidu.com/article/fd8044fa3baad85031137aa2.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/fd8044fa3baad85031137aa2.html</a><br>具体的自行百度吧，因为每台电脑的bios都有大大小小的差异，但实际操作都差不多的！</em></strong></p>
+<h3 id="2-、欢迎界面-选择了U盘启动后，等待一小会儿，会出现如下“欢迎”界面（通过左侧的语言栏选择中文），选择中文后，点击“安装Ubuntu”"><a href="#2-、欢迎界面-选择了U盘启动后，等待一小会儿，会出现如下“欢迎”界面（通过左侧的语言栏选择中文），选择中文后，点击“安装Ubuntu”" class="headerlink" title="(2) 、欢迎界面: 选择了U盘启动后，等待一小会儿，会出现如下“欢迎”界面（通过左侧的语言栏选择中文），选择中文后，点击“安装Ubuntu”;"></a>(2) 、欢迎界面: 选择了U盘启动后，等待一小会儿，会出现如下“欢迎”界面（通过左侧的语言栏选择中文），选择中文后，点击“安装Ubuntu”;</h3><p> <img src="http://upload-images.jianshu.io/upload_images/15448020-f725e24f02faf6bd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<h3 id="3-、-准备安装-接下来会进入“准备安装Ubuntu”界面：这里勾选“为图形或无线硬件…-”-然后点击“继续”。（这里会检测是否已经连网，没网的话，那个-“安装Ubuntu时下载更新”-的是不能选的，连网了所以可选，点完继续后还需要等待一小会儿）"><a href="#3-、-准备安装-接下来会进入“准备安装Ubuntu”界面：这里勾选“为图形或无线硬件…-”-然后点击“继续”。（这里会检测是否已经连网，没网的话，那个-“安装Ubuntu时下载更新”-的是不能选的，连网了所以可选，点完继续后还需要等待一小会儿）" class="headerlink" title="(3) 、 准备安装: 接下来会进入“准备安装Ubuntu”界面：这里勾选“为图形或无线硬件….”,然后点击“继续”。（这里会检测是否已经连网，没网的话，那个 “安装Ubuntu时下载更新” 的是不能选的，连网了所以可选，点完继续后还需要等待一小会儿）:"></a>(3) 、 准备安装: 接下来会进入“准备安装Ubuntu”界面：这里勾选“为图形或无线硬件….”,然后点击“继续”。（这里会检测是否已经连网，没网的话，那个 “安装Ubuntu时下载更新” 的是不能选的，连网了所以可选，点完继续后还需要等待一小会儿）:</h3><p> <img src="http://upload-images.jianshu.io/upload_images/15448020-06c423167e6e3782.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<h3 id="4-、选择安装类型-上步之后进入“安装类型”界面，选择“其他选项”，之后继续，如图：-选择其他选项"><a href="#4-、选择安装类型-上步之后进入“安装类型”界面，选择“其他选项”，之后继续，如图：-选择其他选项" class="headerlink" title="(4) 、选择安装类型: 上步之后进入“安装类型”界面，选择“其他选项”，之后继续，如图：(选择其他选项)"></a>(4) 、选择安装类型: 上步之后进入“安装类型”界面，选择“其他选项”，之后继续，如图：(选择其他选项)</h3><p> <img src="http://upload-images.jianshu.io/upload_images/15448020-1347dbca626d77f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<h3 id="5-、-安装位置的选择及磁盘分区-之后就进入了一个很重要的环节—选择安装位置，分配分区。主要分区：“-”、“-home”、“swap”，“-boot”。如果你的电脑只准备安装Ubuntu，“-boot”不要也行，但是要是双系统的话，强烈建议分出一个”-boot”，这会在以后提供很大的便利。"><a href="#5-、-安装位置的选择及磁盘分区-之后就进入了一个很重要的环节—选择安装位置，分配分区。主要分区：“-”、“-home”、“swap”，“-boot”。如果你的电脑只准备安装Ubuntu，“-boot”不要也行，但是要是双系统的话，强烈建议分出一个”-boot”，这会在以后提供很大的便利。" class="headerlink" title="(5) 、 安装位置的选择及磁盘分区: 之后就进入了一个很重要的环节—选择安装位置，分配分区。主要分区：“/”、“/home”、“swap”，“/boot”。如果你的电脑只准备安装Ubuntu，“/boot”不要也行，但是要是双系统的话，强烈建议分出一个”/boot”，这会在以后提供很大的便利。"></a>(5) 、 安装位置的选择及磁盘分区: 之后就进入了一个很重要的环节—选择安装位置，分配分区。主要分区：“/”、“/home”、“swap”，“/boot”。如果你的电脑只准备安装Ubuntu，“/boot”不要也行，但是要是双系统的话，强烈建议分出一个”/boot”，这会在以后提供很大的便利。</h3><ul>
+<li>/boot - 200 MB ； 实际需求大约 100 ~ 200MB，如果有多个内核/启动镜像同时存在，建议分配 200 或者 300 MB。(个人建议:200MB ~ 300MB)</li>
+<li>/ - 15-20 GB ； 15-20 GB 对于大多数用户来说是一个比较合适的取值。(个人建议：15G短时间用不完，长期使用的话，建议20GB~25GB)</li>
+<li>/home - [不定] ； 通常用于存放用户数据，下载的文件和媒体文件。在桌面系统中，/home 通常是最大的文件系统。(个人建议: 多多益善)</li>
+<li>swap - [不定] ；虚拟内存，不要比你电脑内存大就行，我8g内存分了2g。主要硬盘小呀，要不然直接丢个8g。</li>
+</ul>
+<p>如果你的磁盘空间实在是足够大的话，对上面的各个分区也可以酌情、适当地增大空间(这个自己体会吧)。当然如果磁盘空间不是很大的话，，也可以适当减小空间，但是尽量不要小于最小值（/boot 200MB）</p>
+<p>选择你压缩好的那块盘，点击左下角的加号</p>
+<p>　　/boot 分区:  —— 300MB</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/15448020-e308c3b1cdc5c52a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>　　/ 分区　—— 30GB</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/15448020-e06d2c7f389bb76c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>　　/home 分区　—— 90GB　（安装后感觉 /home 有点大了，觉得可以再分给上面的 / 5GB，即 /home 85GB，/ 35GB）</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/15448020-769f1c33830cfa46.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>　　swap(交换空间) :　—— 5GB多吧（上面剩下的都给它了）</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/15448020-4c500f1d45280068.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"> </p>
+<p> 　　<strong><em>“安装启动引导器的设备”选择/boot对应的分区</em></strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/15448020-12f607ed76e69f3f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"> </p>
+<p> 选择之后，检查无误，点击”现在安装”…</p>
+<h3 id="6-、检查分区"><a href="#6-、检查分区" class="headerlink" title="(6)、检查分区:"></a>(6)、检查分区:</h3><p> <img src="http://upload-images.jianshu.io/upload_images/15448020-4468140bcfcc2e8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p> 检查无误后，选择继续…</p>
+<h3 id="7-、-默认上海，直接”继续”就行，安装完之后可以设置精确的位-选择地域置"><a href="#7-、-默认上海，直接”继续”就行，安装完之后可以设置精确的位-选择地域置" class="headerlink" title="(7)、(默认上海，直接”继续”就行，安装完之后可以设置精确的位 选择地域置):"></a>(7)、(默认上海，直接”继续”就行，安装完之后可以设置精确的位 选择地域置):</h3><p><img src="http://upload-images.jianshu.io/upload_images/15448020-a10c0db9befdcf03.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"> </p>
+<h3 id="8-选择键盘"><a href="#8-选择键盘" class="headerlink" title="(8) 选择键盘:"></a>(8) 选择键盘:</h3><p><img src="http://upload-images.jianshu.io/upload_images/15448020-c85167104660d5f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"> </p>
+<h3 id="9-设置用户"><a href="#9-设置用户" class="headerlink" title="(9)设置用户:"></a>(9)设置用户:</h3><p><img src="http://upload-images.jianshu.io/upload_images/15448020-a7545c5fc653f515.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"> </p>
+<p> 设置完之后，选择”继续”…</p>
+<h3 id="10-、-正在安装，请等待"><a href="#10-、-正在安装，请等待" class="headerlink" title="(10)、 正在安装，请等待:"></a>(10)、 正在安装，请等待:</h3><p><img src="http://upload-images.jianshu.io/upload_images/15448020-be71f4cdcb3164dc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<h3 id="11-、安装成功，请重启"><a href="#11-、安装成功，请重启" class="headerlink" title="(11)、安装成功，请重启:"></a>(11)、安装成功，请重启:</h3><p>重启过程记得把u盘拔了！！！<br>重启过程记得把u盘拔了！！！<br>重启过程记得把u盘拔了！！！<br><img src="http://upload-images.jianshu.io/upload_images/15448020-93ca9b0f92e90786.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<h2 id="三、启动项设置"><a href="#三、启动项设置" class="headerlink" title="三、启动项设置"></a>三、启动项设置</h2><p>修改双系统（win10+ubuntu）启动顺序和启动时间<br><a href="https://jingyan.baidu.com/article/63acb44ae4062c61fcc17e27.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/63acb44ae4062c61fcc17e27.html</a><br><a href="https://www.jianshu.com/p/f3c3beb7f205" target="_blank" rel="noopener">https://www.jianshu.com/p/f3c3beb7f205</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持技术分享，如果帮助到了您，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wechar.png" alt="Chilkings 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Chilkings 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ubuntu/" rel="tag"># ubuntu</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/03/谷歌访问助手/" rel="next" title="谷歌访问助手">
+                <i class="fa fa-chevron-left"></i> 谷歌访问助手
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/26/学生成绩管理系统/" rel="prev" title="学生成绩管理系统">
+                学生成绩管理系统 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Chilkings">
+            
+              <p class="site-author-name" itemprop="name">Chilkings</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Chilkings" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:chilkings@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="/images/wechar.png" target="_blank" title="Wechar">
+                      
+                        <i class="fa fa-fw fa-weixin"></i>Wechar</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、准备："><span class="nav-number">1.</span> <span class="nav-text">一、准备：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）、准备工具："><span class="nav-number">1.1.</span> <span class="nav-text">（一）、准备工具：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）、分区—分出来一个磁盘，用于安装Ubuntu"><span class="nav-number">1.2.</span> <span class="nav-text">（二）、分区—分出来一个磁盘，用于安装Ubuntu</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）、制作启动U盘："><span class="nav-number">1.3.</span> <span class="nav-text">（三）、制作启动U盘：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、安装："><span class="nav-number">2.</span> <span class="nav-text">二、安装：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-、设置第一启动项，长按对应快捷键，选择“usb-xxx”进入u盘系统。快捷键如下图"><span class="nav-number">2.1.</span> <span class="nav-text">(1)、设置第一启动项，长按对应快捷键，选择“usb xxx”进入u盘系统。快捷键如下图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-、欢迎界面-选择了U盘启动后，等待一小会儿，会出现如下“欢迎”界面（通过左侧的语言栏选择中文），选择中文后，点击“安装Ubuntu”"><span class="nav-number">2.2.</span> <span class="nav-text">(2) 、欢迎界面: 选择了U盘启动后，等待一小会儿，会出现如下“欢迎”界面（通过左侧的语言栏选择中文），选择中文后，点击“安装Ubuntu”;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-、-准备安装-接下来会进入“准备安装Ubuntu”界面：这里勾选“为图形或无线硬件…-”-然后点击“继续”。（这里会检测是否已经连网，没网的话，那个-“安装Ubuntu时下载更新”-的是不能选的，连网了所以可选，点完继续后还需要等待一小会儿）"><span class="nav-number">2.3.</span> <span class="nav-text">(3) 、 准备安装: 接下来会进入“准备安装Ubuntu”界面：这里勾选“为图形或无线硬件….”,然后点击“继续”。（这里会检测是否已经连网，没网的话，那个 “安装Ubuntu时下载更新” 的是不能选的，连网了所以可选，点完继续后还需要等待一小会儿）:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-、选择安装类型-上步之后进入“安装类型”界面，选择“其他选项”，之后继续，如图：-选择其他选项"><span class="nav-number">2.4.</span> <span class="nav-text">(4) 、选择安装类型: 上步之后进入“安装类型”界面，选择“其他选项”，之后继续，如图：(选择其他选项)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-、-安装位置的选择及磁盘分区-之后就进入了一个很重要的环节—选择安装位置，分配分区。主要分区：“-”、“-home”、“swap”，“-boot”。如果你的电脑只准备安装Ubuntu，“-boot”不要也行，但是要是双系统的话，强烈建议分出一个”-boot”，这会在以后提供很大的便利。"><span class="nav-number">2.5.</span> <span class="nav-text">(5) 、 安装位置的选择及磁盘分区: 之后就进入了一个很重要的环节—选择安装位置，分配分区。主要分区：“/”、“/home”、“swap”，“/boot”。如果你的电脑只准备安装Ubuntu，“/boot”不要也行，但是要是双系统的话，强烈建议分出一个”/boot”，这会在以后提供很大的便利。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-、检查分区"><span class="nav-number">2.6.</span> <span class="nav-text">(6)、检查分区:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-、-默认上海，直接”继续”就行，安装完之后可以设置精确的位-选择地域置"><span class="nav-number">2.7.</span> <span class="nav-text">(7)、(默认上海，直接”继续”就行，安装完之后可以设置精确的位 选择地域置):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-选择键盘"><span class="nav-number">2.8.</span> <span class="nav-text">(8) 选择键盘:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-设置用户"><span class="nav-number">2.9.</span> <span class="nav-text">(9)设置用户:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-、-正在安装，请等待"><span class="nav-number">2.10.</span> <span class="nav-text">(10)、 正在安装，请等待:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-、安装成功，请重启"><span class="nav-number">2.11.</span> <span class="nav-text">(11)、安装成功，请重启:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、启动项设置"><span class="nav-number">3.</span> <span class="nav-text">三、启动项设置</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chilkings</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'VTlCaLHiSGquLqugizP1SBQW-gzGzoHsz',
+        appKey: 'MKxyRsXFbusK0YmVJn21Skud',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("CJil9hF3rjnUpjvRh5OVYzSu-gzGzoHsz", "hCObG3Txicn9zxH5Vr8VDJ6t");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
