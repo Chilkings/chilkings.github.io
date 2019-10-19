@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="刷入flash固件 把flash_all.bin放入u盘中，u盘必须为fat32  猫盘接上串口，U盘也插上，通电时狂按回车，输入下列命令 1234setenv bootargs &quot;console=ttyMV0,115200 root=/dev/mmcblk0p1 rootwait rw init=/bin/sh&quot;ext4load mmc 0:1 0x1000000 boot/armada-37">
+<meta name="description" content="刷入flash固件 把flash_all.bin放入u盘中，u盘必须为fat32">
 <meta name="keywords" content="猫盘">
 <meta property="og:type" content="article">
 <meta property="og:title" content="猫盘刷群晖">
 <meta property="og:url" content="http://yoursite.com/2019/10/19/猫盘刷机/index.html">
 <meta property="og:site_name" content="Chilkings&#39;s Blog">
-<meta property="og:description" content="刷入flash固件 把flash_all.bin放入u盘中，u盘必须为fat32  猫盘接上串口，U盘也插上，通电时狂按回车，输入下列命令 1234setenv bootargs &quot;console=ttyMV0,115200 root=/dev/mmcblk0p1 rootwait rw init=/bin/sh&quot;ext4load mmc 0:1 0x1000000 boot/armada-37">
+<meta property="og:description" content="刷入flash固件 把flash_all.bin放入u盘中，u盘必须为fat32">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-19T13:00:06.063Z">
+<meta property="og:updated_time" content="2019-10-19T13:08:00.812Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="猫盘刷群晖">
-<meta name="twitter:description" content="刷入flash固件 把flash_all.bin放入u盘中，u盘必须为fat32  猫盘接上串口，U盘也插上，通电时狂按回车，输入下列命令 1234setenv bootargs &quot;console=ttyMV0,115200 root=/dev/mmcblk0p1 rootwait rw init=/bin/sh&quot;ext4load mmc 0:1 0x1000000 boot/armada-37">
+<meta name="twitter:description" content="刷入flash固件 把flash_all.bin放入u盘中，u盘必须为fat32">
 
 
 
@@ -383,10 +383,11 @@
       
 
       
-        <a id="more"></a>
-<h2 id="刷入flash固件"><a href="#刷入flash固件" class="headerlink" title="刷入flash固件"></a>刷入flash固件</h2><ol>
-<li><p>把flash_all.bin放入u盘中，u盘必须为fat32</p>
-</li>
+        <h4 id="刷入flash固件"><a href="#刷入flash固件" class="headerlink" title="刷入flash固件"></a>刷入flash固件</h4><ol>
+<li>把flash_all.bin放入u盘中，u盘必须为fat32</li>
+</ol>
+<a id="more"></a>
+<ol>
 <li><p>猫盘接上串口，U盘也插上，通电时狂按回车，输入下列命令</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setenv bootargs "console=ttyMV0,115200 root=/dev/mmcblk0p1 rootwait rw init=/bin/sh"</span><br><span class="line">ext4load mmc 0:1 0x1000000 boot/armada-3720-customer0.dtb</span><br><span class="line">ext4load mmc 0:1 0x2000000 boot/Image</span><br><span class="line">booti 0x2000000 - 0x1000000</span><br></pre></td></tr></table></figure>
 <p>进入无需登陆的shell，输入下列命令</p>
@@ -396,7 +397,7 @@
 <p>到这里flash固件就刷好了，可以拔电了！  </p>
 </li>
 </ol>
-<h2 id="通过u盘系统刷入debian系统后再刷入群晖"><a href="#通过u盘系统刷入debian系统后再刷入群晖" class="headerlink" title="通过u盘系统刷入debian系统后再刷入群晖"></a>通过u盘系统刷入debian系统后再刷入群晖</h2><ol>
+<h4 id="通过u盘系统刷入debian系统后再刷入群晖"><a href="#通过u盘系统刷入debian系统后再刷入群晖" class="headerlink" title="通过u盘系统刷入debian系统后再刷入群晖"></a>通过u盘系统刷入debian系统后再刷入群晖</h4><ol>
 <li><p>把固件烧录到u盘 </p>
 <p>推荐使用<strong>Etcher</strong>这个软件，先把<strong>disk.img.bz2</strong>里的镜像<strong>disk.img</strong>解压出来，然后直接烧录到u盘就行</p>
 </li>
@@ -650,7 +651,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#刷入flash固件"><span class="nav-number">1.</span> <span class="nav-text">刷入flash固件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过u盘系统刷入debian系统后再刷入群晖"><span class="nav-number">2.</span> <span class="nav-text">通过u盘系统刷入debian系统后再刷入群晖</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#刷入flash固件"><span class="nav-number">1.</span> <span class="nav-text">刷入flash固件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过u盘系统刷入debian系统后再刷入群晖"><span class="nav-number">2.</span> <span class="nav-text">通过u盘系统刷入debian系统后再刷入群晖</span></a></li></ol></div>
             
 
           </div>

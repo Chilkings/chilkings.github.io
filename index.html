@@ -382,28 +382,18 @@
 
       
         
-          
-            <a id="more"></a>
-<h2 id="安装entware"><a href="#安装entware" class="headerlink" title="安装entware"></a>安装entware</h2><ul>
+          <h4 id="安装entware"><a href="#安装entware" class="headerlink" title="安装entware"></a>安装entware</h4><ul>
 <li>首先在群晖的套件中心添加第三方源：<a href="https://www.cphub.net" target="_blank" rel="noopener">https://www.cphub.net</a></li>
 <li>然后在套件中心的社群中，安装Easy Bootstrap Installer。 </li>
 <li>安装的时候选择entware，软件更多</li>
 </ul>
-<h2 id="安装aria2"><a href="#安装aria2" class="headerlink" title="安装aria2"></a>安装aria2</h2><ul>
-<li><p>ssh登录切换到root权限</p>
-</li>
-<li><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">opkg install qbittorrent 	</span><br><span class="line"><span class="regexp">/opt/</span>etc<span class="regexp">/init.d/</span>S81aria2 start</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置文件在 <code>/opt/etc/aria2.conf</code> </p>
-</li>
-</ul>
-<h2 id="安装-AriaNg"><a href="#安装-AriaNg" class="headerlink" title="安装 AriaNg"></a>安装 <a href="https://github.com/mayswind/AriaNg/releases/tag/1.1.4" target="_blank" rel="noopener">AriaNg</a></h2><ul>
-<li>首先到 <a href="https://github.com/mayswind/AriaNg/releases" target="_blank" rel="noopener">https://github.com/mayswind/AriaNg/releases</a> 下载好</li>
-<li>群晖套件中心配置好 <strong>web station</strong></li>
-<li>把文件copy到web文件夹即可</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/10/19/群晖装entware-aria2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -563,46 +553,16 @@
 
       
         
-          
-            <a id="more"></a>
-<h2 id="刷入flash固件"><a href="#刷入flash固件" class="headerlink" title="刷入flash固件"></a>刷入flash固件</h2><ol>
-<li><p>把flash_all.bin放入u盘中，u盘必须为fat32</p>
-</li>
-<li><p>猫盘接上串口，U盘也插上，通电时狂按回车，输入下列命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setenv bootargs "console=ttyMV0,115200 root=/dev/mmcblk0p1 rootwait rw init=/bin/sh"</span><br><span class="line">ext4load mmc 0:1 0x1000000 boot/armada-3720-customer0.dtb</span><br><span class="line">ext4load mmc 0:1 0x2000000 boot/Image</span><br><span class="line">booti 0x2000000 - 0x1000000</span><br></pre></td></tr></table></figure>
-<p>进入无需登陆的shell，输入下列命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mount -t proc /proc</span><br><span class="line">mount /dev/mmcblk0p2 /media</span><br><span class="line">mount /dev/sda1 /mnt</span><br><span class="line">cp -f /mnt/flash_all.bin /media</span><br><span class="line">umount /media</span><br><span class="line">umount /mnt</span><br></pre></td></tr></table></figure>
-<p>直接拔电后在插电，狂按回车，输入下列命令（最后两个命令所需时间比较长，慢慢等）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ext4load mmc 0:2 0x1000000 flash_all.bin</span><br><span class="line">sf probe</span><br><span class="line">sf erase 0x0 0x800000</span><br><span class="line">sf write 0x1000000 0x0 0x800000</span><br></pre></td></tr></table></figure>
-<p>到这里flash固件就刷好了，可以拔电了！  </p>
-</li>
+          <h4 id="刷入flash固件"><a href="#刷入flash固件" class="headerlink" title="刷入flash固件"></a>刷入flash固件</h4><ol>
+<li>把flash_all.bin放入u盘中，u盘必须为fat32</li>
 </ol>
-<h2 id="通过u盘系统刷入debian系统后再刷入群晖"><a href="#通过u盘系统刷入debian系统后再刷入群晖" class="headerlink" title="通过u盘系统刷入debian系统后再刷入群晖"></a>通过u盘系统刷入debian系统后再刷入群晖</h2><ol>
-<li><p>把固件烧录到u盘 </p>
-<p>推荐使用<strong>Etcher</strong>这个软件，先把<strong>disk.img.bz2</strong>里的镜像<strong>disk.img</strong>解压出来，然后直接烧录到u盘就行</p>
-</li>
-<li><p>进入u盘系统，安装debian到emmc</p>
-<p>猫盘插上u盘，按住复位上电。在串口能看到输出，登录系统，账号root，密码debian，执行下列命令</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./install_debian_mmc</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>进入emmc的debian系统安装群晖</p>
-<p>先把格式化好的硬盘插上！！！</p>
-<p>上边装好后，记得拔掉u盘，同样也是按住复位键上电，就能进入emmc的debian，同样在串口操作。</p>
-<p>先登录，然后执行下列命令（所需时间较长，慢慢等）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./formatdisk</span><br><span class="line">./install_syno</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>重新插下电就行了</p>
-</li>
-<li><p>最后还要改下mac和sn，教程放下面的百度网盘里了</p>
-</li>
-</ol>
-<p><strong>串口全程都不用拔！！！</strong></p>
-<p><strong>串口全程都不用拔！！！</strong></p>
-<p><strong>串口全程都不用拔！！！</strong></p>
-<p>所需文件和工具：链接：<a href="https://pan.baidu.com/s/13bRfTQzjMHmXB6O8nnZusg" target="_blank" rel="noopener">https://pan.baidu.com/s/13bRfTQzjMHmXB6O8nnZusg</a><br>提取码：fhu6 </p>
-<p>文中的方法参考了各个大神的帖子，在此表示感谢！！！</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/10/19/猫盘刷机/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
